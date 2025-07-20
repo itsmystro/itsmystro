@@ -1,3 +1,4 @@
+<img src="github-banner.png" alt="Mys†ro Banner" width="100%" />
 # Hey, I'm Mys†ro 👨‍💻
 
 🚫 AFK but everywhere  
