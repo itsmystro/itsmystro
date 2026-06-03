@@ -1,40 +1,3 @@
-<!--
-  ╔══════════════════════════════════════════════════════════════╗
-  ║  SNAKE ANIMATION — ONE-TIME SETUP REQUIRED                  ║
-  ║                                                             ║
-  ║  Create this file in your profile repo:                     ║
-  ║  .github/workflows/snake.yml                               ║
-  ║                                                             ║
-  ║  name: Generate Snake                                       ║
-  ║  on:                                                        ║
-  ║    schedule:                                                ║
-  ║      - cron: "0 */12 * * *"                               ║
-  ║    workflow_dispatch:                                       ║
-  ║    push:                                                    ║
-  ║      branches: [main]                                       ║
-  ║  jobs:                                                      ║
-  ║    generate:                                                ║
-  ║      permissions:                                           ║
-  ║        contents: write                                      ║
-  ║      runs-on: ubuntu-latest                                 ║
-  ║      steps:                                                 ║
-  ║        - uses: Platane/snk/svg-only@v3                     ║
-  ║          with:                                              ║
-  ║            github_user_name: ${{ github.actor }}           ║
-  ║            outputs: |                                       ║
-  ║              dist/github-contribution-grid-snake.svg       ║
-  ║              dist/github-contribution-grid-snake-dark.svg?palette=github-dark  ║
-  ║          env:                                               ║
-  ║            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}       ║
-  ║        - uses: crazy-max/ghaction-github-pages@v3.1.0      ║
-  ║          with:                                              ║
-  ║            target_branch: output                            ║
-  ║            build_dir: dist                                  ║
-  ║          env:                                               ║
-  ║            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}       ║
-  ╚══════════════════════════════════════════════════════════════╝
--->
-
 <div align="center">
 
 <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━ HEADER ━━━━━━━━━━━━━━━━━━━━━━━━━ -->
@@ -247,54 +210,6 @@ class Mystro:
 
 ---
 
-<!-- ━━━━━━━━━━━━━━━━━━━━━━ SNAKE SETUP ━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
-
-<details>
-<summary><b>⚙️ Setup: Enable Snake Animation</b></summary>
-
-<br/>
-
-Create `.github/workflows/snake.yml` inside your **`itsmystro/itsmystro`** profile repo:
-
-```yaml
-name: Generate Snake Animation
-
-on:
-  schedule:
-    - cron: "0 */12 * * *"
-  workflow_dispatch:
-  push:
-    branches: [main]
-
-jobs:
-  generate:
-    permissions:
-      contents: write
-    runs-on: ubuntu-latest
-    timeout-minutes: 5
-    steps:
-      - name: Generate snake animation
-        uses: Platane/snk/svg-only@v3
-        with:
-          github_user_name: ${{ github.repository_owner }}
-          outputs: |
-            dist/github-contribution-grid-snake.svg
-            dist/github-contribution-grid-snake-dark.svg?palette=github-dark
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Push to output branch
-        uses: crazy-max/ghaction-github-pages@v3.1.0
-        with:
-          target_branch: output
-          build_dir: dist
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-```
-
-After the first action run, the snake animation will appear and auto-updates every 12 hours.
-
-</details>
 
 <br/>
 
